@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { v4: uuidv4 } = require('uuid');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs'); // Cambiado de bcrypt a bcryptjs
 const jwt = require('jsonwebtoken');
 const secretKey = 'mondongo';
 const authMiddleware = require('../middleware/auth');
