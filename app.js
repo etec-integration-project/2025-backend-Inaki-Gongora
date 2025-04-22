@@ -10,7 +10,7 @@ const app = express();
 
 // Configuración de CORS
 const corsOptions = {
-  origin: 'http://frontend:3001', // Cambia al puerto del frontend
+  origin: 'http://localhost:3001', // Cambia al puerto del frontend
   credentials: true, // Permite enviar cookies o encabezados de autenticación
 };
 app.use(cors(corsOptions));
