@@ -10,8 +10,8 @@ const app = express();
 
 // Configuración de CORS
 const corsOptions = {
-  origin: 'http://localhost', // Cambia al puerto del frontend
-  credentials: true, // Permite enviar cookies o encabezados de autenticación
+  origin: ['http://localhost', 'http://frontend'], // Permitir localhost y el contenedor frontend
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
@@ -28,9 +28,9 @@ app.use(session({
 
 // Configuración de la base de datos usando variables de entorno
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost', // Leer de las variables de entorno o usar valor por defecto
+  host: process.env.DB_HOST || 'mysql_engine', // Leer de las variables de entorno o usar valor por defecto
   user: process.env.DB_USER || 'root', // Leer de las variables de entorno o usar valor por defecto
-  password: process.env.DB_PASSWORD || '', // Leer de las variables de entorno o usar valor por defecto
+  password: process.env.DB_PASSWORD || '1234', // Leer de las variables de entorno o usar valor por defecto
   database: process.env.DB_NAME || 'zephyr', // Leer de las variables de entorno o usar valor por defecto
   port: process.env.DB_PORT || 3306, // Leer de las variables de entorno o usar valor por defecto
   waitForConnections: true,
